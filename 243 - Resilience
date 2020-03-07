@@ -1,0 +1,58 @@
+package com.company;
+
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+
+public class Resilience
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        int t;
+        t = in.nextInt();
+
+        for(int i = 0; i < t; i++)
+        {
+            double resilience = 100000;
+
+            int d;
+
+            double a = in.nextDouble();
+            double b = in.nextDouble();
+
+            double q = a/b;
+
+            for(d = 4; resilience >= q; d++)
+            {
+                int rescount = 0;
+
+                for(int n = 1; n < d; n++)
+                {
+                    int gcd = 1;
+
+                    for(int k = 2; k <= n; k++)
+                    {
+                        if(n%k == 0 && d%k == 0)
+                        {
+                            gcd = k;
+                        }
+                    }
+
+                    if(gcd == 1)
+                    {
+                        rescount++;
+                    }
+                }
+
+                resilience = (double)rescount/(double)(d-1);
+
+                if(resilience < q)
+                {
+                    System.out.println(d);
+                }
+            }
+        }
+    }
+}
