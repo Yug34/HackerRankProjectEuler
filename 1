@@ -1,0 +1,44 @@
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+
+        int t = in.nextInt();
+
+        int sum = 0;
+
+        for(int i = 0; i < t; i++)
+        {
+            int n = in.nextInt();
+
+            double last3 = n - (n%3);
+            double last5 = n - (n%5);
+            double last15 = n - (n%15);
+
+            double sum3, sum5, sum15;
+
+            sum3 = (last3/6)*(3 + last3);
+            sum5 = (last5/10)*(5 + last5);
+            sum15 = (last15/30)*(15 + last15);
+
+            if(last3 == n || last5 == n || last15 == n)
+            {
+                sum = (int)sum3+(int)sum5-(int)sum15-n;
+            }
+            else
+            {
+                sum = (int)sum3+(int)sum5-(int)sum15;
+            }
+
+            System.out.println(sum);
+        }
+
+        sum = 0;
+    }
+}
