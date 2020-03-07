@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+
+        int t = in.nextInt();
+
+        for(int a0 = 0; a0 < t; a0++)
+        {
+            long n = in.nextLong();
+
+            long a,b,fib;
+
+            a = 0;
+            b = 0;
+            fib = 1;
+
+            long sum = 0;
+
+            while(fib <= n)
+            {
+                a = b;
+                b = fib;
+                fib = a+b;
+
+                if(fib%2 == 0 && fib < n)
+                {
+                    sum += fib;
+                }
+            }
+
+            System.out.println(sum);
+        }
+    }
+}
