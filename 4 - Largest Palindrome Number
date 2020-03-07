@@ -1,0 +1,65 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+
+        int t = in.nextInt();
+
+        for(int a0 = 0; a0 < t; a0++)
+        {
+            int n = in.nextInt();
+
+            for(int num = n-1; num >= 101101; num--)
+            {
+                int a,b,c;
+
+                a = num%10;
+                b = num%100 - a;
+                c = num%1000 - b - a;
+
+                int palin;
+                palin = a*100000 + b*1000 + c*10 + a + b + c;
+
+                boolean test = false;
+
+                if(palin == num)
+                {
+                    for(int i = 100; i <= 999; i++)
+                    {
+                        for(int k = 999; k >= 100; k--)
+                        {
+                            if(i*k == num)
+                            {
+                                System.out.println(num);
+
+                                test = true;
+                            }
+
+                            if(test)
+                            {
+                                break;
+                            }
+                        }
+
+                        if(test)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                if(test)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}
